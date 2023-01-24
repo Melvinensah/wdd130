@@ -2,11 +2,11 @@
 
 :root {
   /* change the values below to your colors from your palette */
-  --primary-color: #3682B5;
-  --secondary-color: #DED8AE;
-  --accent1-color: #8EE8F0;
-  --accent2-color: #FFE092;
-  --accent3-color: #98DEFF;
+  --primary-color: #1F7A8C;
+  --secondary-color: #0D1321;
+  --accent1-color:  #FFFEFF;
+  --accent2-color:  #7E6B8F;
+  --accent3-color: #FF890A;
 
   /* change the values below to your chosen font(s) */
   --heading-font: "Noto Serif";
@@ -102,7 +102,7 @@ nav {
   line-height: 3em;
   text-align: center;
   font-size: 1.2em;
-    list-style-type: none;
+  list-style-type: none;
   display: flex;
 }
 
