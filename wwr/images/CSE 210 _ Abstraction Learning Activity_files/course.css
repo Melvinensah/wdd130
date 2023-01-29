@@ -1,0 +1,384 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&family=Noto+Sans+Mono&display=swap");
+
+:root {
+  --alink: #0000ee;
+  --avisited: #551a8b;
+
+  --lightgray: rgb(240, 240, 240);
+  --gray: rgb(150, 150, 150);
+  --darkgray: rgb(50, 50, 50);
+  --byuiblue: rgb(0, 110, 182);
+  --navy: rgb(0, 0, 128);
+  --red: rgb(182, 0, 19);
+  --mustard: rgb(182, 163, 0);
+  --callout: rgb(230, 243, 254);
+  --error: rgb(255, 215, 225);
+  --warning: rgb(255, 255, 225);
+  --details: rgb(238, 254, 238);
+
+  --padd: 0.5rem;
+  --bord: 1px solid rgba(0, 0, 0, 0.1);
+  --font-body: Garamond, -apple-system, system-ui, sans-serif;
+  --font-headline: "Titillium web";
+}
+
+body {
+  /* font: 400 16px / 1.5 Montserrat, 'Open Sans', Helvetica, sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased; */
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.2em;
+  color: var(--darkgray);
+  background-color: var(--white);
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Noto Sans Mono";
+  margin: 0;
+}
+
+/* h1 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-left: 1rem;
+  font-weight: normal;
+} */
+
+h1 {
+  color: #fff;
+  font-size: 1.25em;
+}
+#coursetitle {
+  display: none;
+  /* display: inline; */
+}
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+h4 {
+  font-size: 1.0em;
+}
+
+h5 {
+  font-size: 0.8em;
+}
+
+
+a {
+  color: var(--navy);
+}
+a:link {
+  color: var(--alink);
+}
+a:active {
+  color: var(--red);
+}
+a:visited,
+a:focus {
+  color: var(--avisited);
+}
+
+p {
+  margin: 1rem;
+  line-height: 1.45;
+}
+
+h4 + p {
+  margin-left: 1.25rem;
+}
+
+h5 ~ p {
+  margin-left: 1.5rem;
+}
+
+ol ol,
+ul ul {
+  margin-top: 1rem; /* override default */
+}
+
+li {
+  margin-bottom: 0.5rem;
+  line-height: 1.45;
+
+}
+
+li ul li:nth-child(1) {
+  margin-top: 0.5rem;
+}
+
+li ul li,
+li ol li {
+  margin-bottom: 0.5rem;
+}
+
+li p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+header {
+  background-color: var(--byuiblue);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+header > div.page {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 75px;
+  height: auto;
+  position: absolute;
+  right: 1rem;
+}
+
+nav.page {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem auto;
+}
+
+main {
+  margin: 1.5rem 1rem;
+}
+
+footer {
+  border-top: var(--bord);
+  font-size: smaller;
+  background-color: var(--lightgray);
+  padding: 0.5rem;
+  text-align: center;
+}
+
+footer p {
+  margin: 0 0 0 0.5rem;
+}
+
+details {
+  margin: 1rem 2rem;
+  border: var(--bord);
+  padding: 0.5rem;
+  color: #000;
+  background-color: var(--details);
+}
+
+.smaller {
+  font-size: smaller;
+}
+
+pre {
+  line-height: 1.2;
+  margin: 0.5rem 1rem;
+}
+
+pre code {
+  border: var(--bord);
+  border-left: 3px solid var(--byuiblue);
+  padding: 0.75rem !important;
+  padding-top: 0rem !important;
+  font-size: 0.9rem;
+
+}
+
+details pre code {
+  border-left: 3px solid rgb(50, 100, 50);
+}
+
+code {
+  font-family: Consolas, Menlo, monospace;
+}
+
+li code,
+p code {
+  font-weight: 700;
+  font-size: 1.0rem;
+}
+
+
+kbd {
+  color: red;
+}
+
+mark {
+  padding: 0.5rem;
+  font-style: italic;
+}
+mark::before {
+  content: '⚒️';
+}
+
+figure {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+figcaption {
+  font-size: smaller;
+  margin: 0 0 1rem 0;
+}
+
+.video-container {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding-bottom: calc(var(--aspect-ratio, 0.5625) * 100%);
+  margin: 0.5em auto;
+}
+
+.video-container iframe {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+table {
+  border-collapse: collapse;
+  margin: 1rem auto;
+  width: 80%;
+  border: var(--bord);
+  background-color: var(--lightgray);
+}
+
+table caption {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+th {
+  background-color: var(--darkgray);
+  color: #fff;
+}
+
+th,
+td {
+  border: var(--bord);
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.page {
+  max-width: 960px;
+  position: relative;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+}
+.callout {
+  margin: 1rem;
+  border: var(--bord);
+  padding: 0.5rem;
+  color: #000;
+}
+
+.reference {
+  background-color: var(--lightgray);
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.info {
+  background-color: var(--callout);
+}
+
+.error {
+  background-color: var(--error);
+}
+
+.warning {
+  background-color: var(--warning);
+}
+
+.question {
+  color: var(--navy);
+  border-top: var(--bord);
+}
+
+blockquote {
+  border-left: 3px solid var(--darkgray);
+  padding-left: 1.25rem;
+}
+
+.smaller {
+  font-size: smaller;
+}
+
+.floatright {
+  float: right;
+  margin: 0 0 0.5rem 0.5rem;
+  border: var(--bord);
+}
+
+.step-reset {
+  counter-reset: step;
+}
+.step {
+  counter-increment: step;
+}
+.step::before {
+  content: 'Step ' counter(step) ':  ';
+  font-size: x-large;
+  color: var(--navy);
+}
+
+.part-reset {
+  counter-reset: part;
+}
+.part {
+  counter-increment: part;
+  margin-left: 1rem;
+}
+.part::before {
+  content: 'Part ' counter(part) ':  ';
+  font-size: x-large;
+  color: var(--navy);
+}
+
+.check {
+  list-style: '☑️ ';
+}
+
+@media screen and (min-width: 640px) {
+  .logo {
+    width: 75px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  #coursetitle {
+    display: inline;
+  }
+}
+
+@media screen and (min-width: 825px) {
+  .logo {
+    width: 100px;
+  }
+
+  h1 {
+    font-size: 2.0rem;
+    margin-left: 0;
+  }
+}

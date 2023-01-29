@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://byui-cse.github.io/cse210-course-2023/unit02/prepare.html -->
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSE 210 | Abstraction Learning Activity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./CSE 210 _ Abstraction Learning Activity_files/css2" rel="stylesheet">
+  <link rel="stylesheet" href="./CSE 210 _ Abstraction Learning Activity_files/course.css">
+  <link rel="stylesheet" href="./CSE 210 _ Abstraction Learning Activity_files/default.min.css">
+
+</head>
+
+<body>
+  <header>
+    <div class="page">
+      <h1>CSE 210<span id="coursetitle">: Programming with Classes</span></h1>
+      <img src="./CSE 210 _ Abstraction Learning Activity_files/byui-logo.svg" alt="BYU-I logo" class="logo">
+    </div>
+  </header>
+  <main class="page">
+    <h2>Abstraction Learning Activity</h2>
+
+    <h3>Overview</h3>
+    <p>In this activity you will learn and practice the principle of Abstraction.</p>
+
+    <h3>Prepare</h3>
+
+		<h4 id="what-is-abstraction">What is Abstraction?</h4>
+
+    <p>Abstraction is the process of turning complex ideas into simple ones. It is removing characteristics from something so that only the essential ones remain. As programmers, we create and use abstractions all the time. Consider the following line of Python code.</p>
+
+    <pre><code class="python hljs language-python">
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"hello world"</span>)
+    </code></pre>
+
+    <p>Whether or not you're familiar with Python, you probably recognize this as the first program we all learn to write. You also probably understand this statement will show the words, "hello world", on a computer display. However, relatively few programmers know the details of how this is accomplished. As it turns out, it takes over <a href="https://github.com/python/cpython/blob/2.7/Python/bltinmodule.c">3000 lines of C</a> to implement this function.</p>
+
+    <p>The print function in Python is an abstraction. It is the simplification of something that is actually quite complex. In order to use it, all we need to know is the function name itself, or "print", and the required arguments, some literal text or a variable that can be transformed into literal text.</p>
+
+    <p>The print function might be used within another function we write to create yet another abstraction. That is, a different function that simplifies a higher order idea or task. This layering of abstractions is exactly how all of the software used in the world today, from text editors like Notepad to social media platforms like Facebook, is written.</p>
+
+    <h4 id="objects-and-classes">Objects and Classes</h4>
+
+    <p>Programming with classes is another way of creating abstractions in software. We begin, however, by thinking about objects. An object is a conceptual model for a category of things, real or imagined, that has a specific responsibility within our program. For example, we might think of an object that holds and provides identifying information about a person. </p>
+
+    <p>Objects have state and behavior that allow them fulfill their responsibility. The person object may have state like "given name" and "family name". It may also have related behaviors like "show western name" and "show eastern name". Following is a graphical depiction of our person object.</p>
+
+    <figure>
+      <img alt="Person Object UML" src="./CSE 210 _ Abstraction Learning Activity_files/person-object.png">
+      <figcaption>Person Responsibilities</figcaption>
+    </figure>
+
+
+    <p>Thinking about a person this way is an abstraction. It is a simplification of something that is more complex. It might seem trivial at first but not having to worry about differences in lexical name form anywhere else in our software is significant. We can just rely on the person object to take care of it. </p>
+
+    <p>There aren't any unrelated behaviors either. There are certainly many other ones we could think of as belonging to a person. However, our conceptualization only contains those that help fulfill its specific responsibility. </p>
+
+    <p>With an object in mind we are ready to translate it to a code template called a class. The object's state is translated to variables called attributes. The object's behaviors are translated to functions called methods.</p>
+    
+    <p>As a stepping stone to writing the actual code, we can create a Class Diagram which is a box that has the name of the class at the top, the member variables or attributes in the middle, and the methods at the bottom. Member variables are followed by a colon and their data type, and methods are followed by a colon and their return type. The following is an example of the Class Diagram for the Person class described above:</p>
+
+    <figure>
+      <img alt="Person Class Diagram" src="./CSE 210 _ Abstraction Learning Activity_files/person-class-diagram.png">
+      <figcaption>Person Class Diagram</figcaption>
+    </figure>
+
+
+    <p>You can observe from the class diagram that the standard in C# is to use TitleCase for class and method names, and to use _underscoreCamelCase for our member variable names. The underscore at the beginning helps you recognize that the variables are members of the class and are different from regular, local variables.</p>
+    
+    <p>Once we have a class diagram, we have enough detail to begin to implement the class in code. The following is an example of the Person translated to a class in code. Be sure to read all of the comments and code carefully.</p>
+
+    <pre><code class="csharp hljs language-csharp">
+    <span class="hljs-comment">// A code template for the category of things known as Person. The</span>
+    <span class="hljs-comment">// responsibility of a Person is to hold and display personal information.</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>
+    {
+        <span class="hljs-comment">// The C# convention is to start member variables with an underscore _</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> _givenName = <span class="hljs-string">""</span>;
+        <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> _familyName = <span class="hljs-string">""</span>;
+
+        <span class="hljs-comment">// A special method, called a constructor that is invoked using the  </span>
+        <span class="hljs-comment">// new keyword followed by the class name and parentheses.</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span>()</span>
+        {
+        }
+
+        <span class="hljs-comment">// A method that displays the person's full name as used in eastern </span>
+        <span class="hljs-comment">// countries or &lt;family name, given name&gt;.</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ShowEasternName</span>()</span>
+        {
+            Console.WriteLine(<span class="hljs-string">$"<span class="hljs-subst">{_familyName}</span>, <span class="hljs-subst">{_givenName}</span>"</span>);
+        }
+
+        <span class="hljs-comment">// A method that displays the person's full name as used in western </span>
+        <span class="hljs-comment">// countries or &lt;given name family name&gt;.</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ShowWesternName</span>()</span>
+        {
+            Console.WriteLine(<span class="hljs-string">$"<span class="hljs-subst">{_givenName}</span> <span class="hljs-subst">{_familyName}</span>"</span>);
+        }
+    }
+    </code></pre>
+
+    <h4 id="classes-and-instances">Classes and Instances</h4>
+
+    <p>By itself, a class is just a template for something. It only becomes useful when an instance is created and assigned to a variable in your program. An instance is the realization of attributes and methods in the computer's memory. </p>
+
+    <p>Another way to think about creating an instance of a class is to imagine baking a cake. In this metaphor, a class is like the recipe. It is a template for a cake but not the actual baked good. In contrast, an instance is what comes out of the oven. It is a realization of the recipe details in a sweet tasting crumb! Consider the following code.</p>
+
+    <pre><code class="csharp hljs language-csharp">
+    Person person = <span class="hljs-keyword">new</span> Person();
+    person._givenName = <span class="hljs-string">"Joseph"</span>;
+    person._familyName = <span class="hljs-string">"Smith"</span>;
+    person.ShowWesternName();
+    person.ShowEasternName();
+    </code></pre>
+
+    <p>Output:</p>
+    <pre><code class="plaintext hljs language-plaintext">
+    Joseph Smith
+    Smith, Joseph
+    </code></pre>
+
+    <p>In this example, an instance of the Person class is created and assigned to the variable called "person". It is created by invoking a special method, called the constructor, which is the name of the class followed by parentheses. Some programming languages, like Java, C# and others, require the "new" keyword when calling a constructor. (You will learn more about constructors in the next unit.)</p>
+
+    <p>One of the most important aspects of programming with classes is that multiple instances can be created and used in the same program. The following example shows the creation of two Person instances. Notice how the "given name" attributes are assigned different values, varying the behavior of the "show western name" method from one instance to the other.</p>
+
+    <pre><code class="csharp hljs language-csharp">
+    person1 = <span class="hljs-keyword">new</span> Person();
+    person1._givenName = <span class="hljs-string">"Emma"</span>;
+    person1._familyName = <span class="hljs-string">"Smith"</span>;
+    person1.ShowWesternName();
+
+    person2 = <span class="hljs-keyword">new</span> Person();
+    person2._givenName = <span class="hljs-string">"Joseph"</span>;
+    person2._familyName = <span class="hljs-string">"Smith"</span>;
+    person2.ShowWesternName();
+    </code></pre>
+
+    <p>Output:</p>
+    <pre><code class="plaintext hljs language-plaintext">
+    Emma Smith
+    Joseph Smith
+    </code></pre>
+
+    <h4 id="instances-and-objects">Instances and Objects</h4>
+    <p>Many people use the word "object" to refer to an instance of a class as well. It happens so often that "object" really seems to have a dual meaning. If you're new to programming with classes our advice is to be strict with yourself and avoid this situation while giving your colleagues some latitude. After all, you can usually tell what someone means by listening carefully to the rest of what they're saying.</p>
+
+    <h4 id="closing-thoughts">Summary</h4>
+
+    <p>Think back to the beginning paragraphs in this article. One of the more interesting aspects of abstraction is that we can layer them. We can do a similar thing with objects, classes and instances. Imagine creating a person object that is composed of a name object, address object, etc. Each would have their own responsibility, behaviors and state. </p>
+
+    <p>Abstraction is the first principle of programming with classes. As you get better at applying it, you'll find you're able to think and talk about your software, with programmers and non-programmers alike, in a very natural way. Please don't underestimate the value of this ability. Being able to communicate clearly about what is needed and what you're doing is at the very heart of creating software that is ready for change.</p>
+
+    <div class="callout info">
+      <h4>Terms and Definitions</h4>
+      <p><strong>Class</strong> - A new custom data type that defines attributes (member variables) and methods. This is like a blueprint to create instances or objects of that class. <em>Example: A Person has given name and family name.</em></p>
+      <p><strong>Instance</strong> - A variable whose data type is the class. We often use the term <strong>Object</strong> interchangeably. <em>Example: We can have two instances of the Person class: one for John, and one for Mary.</em></p>
+      <p><strong>Instantiate</strong> - A verb that means "to create an instance of." <em>Example: We can instantiate the Person class to create a new object.</em></p>
+      <p><strong>Method</strong> - A member function. Methods are called using "dot notation" with an instance of the class before the dot. <em>Example:</em> <code>person1.GetEasternName()</code></p>
+    </div>
+
+    <h3 class="step-reset">Activity Instructions</h3>
+    <p>Practice the principle of abstraction by creating classes to represent a resume or an job history for a person like you might see on LinkedIn.</p>
+    <h4 class="step">Design the Classes</h4>
+    <p>You program should contain two classes one for a Job and one for the Resume itself, as follows:</p>
+
+    <h5>Class: Job</h5>
+    <ul>
+      <li>Responsibilities:</li>
+      <ul>
+        <li>Keeps track of the company, job title, start year, and end year.</li>
+      </ul>
+      <li>Behaviors:</li>
+      <ul>
+        <li>Displays the job information in the format "<code>Job Title (Company) StartYear-EndYear</code>", for example: "<code>Software Engineer (Microsoft) 2019-2022</code>".</li>
+      </ul>
+    </ul>
+    <h5>Class: Resume</h5>
+    <ul>
+      <li>Responsibilities:</li>
+      <ul>
+        <li>Keeps track of the person's name and a list of their jobs.</li>
+      </ul>
+      <li>Behaviors:</li>
+      <ul>
+        <li>Displays the resume, which shows the name first, followed by displaying each one of the jobs.</li>
+      </ul>
+    </ul>
+
+    <p>Based on these descriptions, you could create class diagrams like the following:</p>
+
+    <figure>
+      <img src="./CSE 210 _ Abstraction Learning Activity_files/resume-class-diagrams.png" alt="Class diagram for the resume and job classes">
+      <figcaption>Resume and Job Class Diagrams</figcaption>
+    </figure>
+
+    <h4 class="step">Start the Project</h4>
+    <ol>
+      <li>Open the class project in VS Code.</li>
+      <li>Navigate to the <code>Learning02</code> project in the <code>prepare</code> folder. Find the <code>Program.cs</code> file, which will be your entry point for the program.</li>
+      <li>Verify that you can run the project and see the beginning "Hello World" output.</li>
+    </ol>
+
+    <h4 class="step">Create the Job class</h4>
+    <ol>
+      <li>Create a new file for your job class. By convention this should be named <code>Job.cs</code> .</li>
+      <li>Create the class (Hint this is the <code>public class Job</code> syntax).</li>
+      <li>Create member variables in the class for each element that this class should contain. By convention these member variables should begin with an underscore and a lowercase letter such as <code>_jobTitle</code> .</li>
+    </ol>
+
+    <h4 class="step">Test your Job class</h4>
+    <ol>
+      <li>Back in your Program.cs file, add code to your <code>Main</code> function.</li>
+      <li>Create a new job instance named <code>job1</code> .</li>
+      <li>Set the member variables using the dot notation (for example, <code>job1._jobTitle = "Software Engineer";</code></li>
+      <li>Verify that you can display the company of this job on the screen, again using the dot notation to access the member variable.</li>
+      <li>Create a second job, set its variables, display this company on the screen as well.</li>
+    </ol>
+
+<p>Sample Output</p>
+<pre><code class="plaintext hljs language-plaintext">
+Microsoft
+Apple
+</code></pre>
+
+    <h4 class="step">Add a Display method to the Job class</h4>
+    <ol>
+      <li>Return to your <code>Job.cs</code> file and add a method (member function) to display the job details. This method should not have any parameters and does not need to return anything. By convention, this method should begin with a capital letter, such as <code>Display</code>, and if you have multiple words each word should be capitalized, such as <code>DisplayJobDetails</code> .</li>
+      <li>This method should display the job details on the screen in the correct format. Remember that the method can access the member variables directly, without needing them to be passed into it.</li>
+      <li>Return to your <code>Program.cs</code> file. Remove the lines of code where you displayed the company earlier, and replace them with calls to your new method. Remember that you call the method using the same dot notation such as <code>job1.Display();</code> .</li>
+    </ol>
+
+<p>Sample Output</p>
+<pre><code class="plaintext hljs language-plaintext">
+Software Engineer (Microsoft) 2019-2022
+Manager (Apple) 2022-2023
+</code></pre>
+
+    <h4 class="step">Create the Resume class</h4>
+    <ol>
+      <li>Create a new file for your <code>Resume</code> class. Each class should be in its own file and the file name should match the name of the class.</li>
+      <li>Create the <code>Resume</code> class.</li>
+      <li>Create the member variable for the person's name.</li>
+      <li>Create the member variable for the list of Jobs. (Hint: the data type for this should be <code>List&lt;Job&gt;</code> , and it is probably easiest to initialize this to a new list right when you declare it..)</li>
+    </ol>
+
+    <h4 class="step">Test your Resume class</h4>
+    <ol>
+      <li>Return to your <code>Program.cs</code>. Add the end of the <code>Main</code> function, create a new instance of the <code>Resume</code> class.</li>
+      <li>Add the two jobs you created earlier, to the list of jobs in the resume object.</li>
+      <li>Verify that you can access and display the first job title using dot notation similar to <code>myResume._jobs[0]._jobTitle</code> .</li>
+    </ol>
+
+    <h4 class="step">Add a Display method to the Resume class</h4>
+    <ol>
+      <li>Return to your <code>Resume</code> class and add a method to display its details.</li>
+      <li>This method should not have any parameters and should not return anything.</li>
+      <li>In the method body, you should display the person's name and then iterate through each <code>Job</code> instance in the list of jobs and display them.</li>
+      <li>Hint: remember that you can call each job's <code>Display</code> method that you created earlier.</li>
+      <li>Return to your main function, remove any code that is displaying information, and instead, add a call at the end to the <code>Display</code> method from your <code>Resume</code> class to display the name and all the jobs in one line.</li>
+    </ol>
+
+<p>Sample Output</p>
+<pre><code class="plaintext hljs language-plaintext">
+Name: Allison Rose
+Jobs:
+Software Engineer (Microsoft) 2019-2022
+Manager (Apple) 2022-2023
+</code></pre>
+
+    <h3>Sample Solution</h3>
+    <p>When you have finished please compare your approach to the following sample solution (you may also use this sample solution as a guide if you need help finishing).</p>
+
+    <ul>
+      <li><a href="https://github.com/byui-cse/cse210-student-sample-solutions/tree/main/prepare/Learning02" target="_blank">Learning Activity 02 Sample Solution.</a></li>
+    </ul>
+
+    <h3>Submission</h3>
+    <ol>
+      <li>Verify that your program works as described.</li>
+      <li>Commit and push your code to your GitHub repository.</li>
+      <li>Verify that you can see your updated code at GitHub.</li>
+      <li>Submit the I-Learn quiz to report on your work.</li>
+    </ol>
+
+
+  </main>
+
+  <footer>
+    <p>Copyright © Brigham Young University-Idaho | All rights reserved</p>
+  </footer>
+  <script src="./CSE 210 _ Abstraction Learning Activity_files/highlight.min.js.download"></script>
+  <script>hljs.highlightAll();</script>
+
+
+
+</body></html>
