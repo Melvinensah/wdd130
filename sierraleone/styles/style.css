@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&family=Roboto:ital@1&display=swap');
+#content{
+    max-width: 1600px; 
+    margin: 0 auto;
+}
+header {
+    background-color: #00418B;
+    display: grid;
+    grid-template-columns: 150px auto;
+}
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+nav a{
+    text-align: center;
+    color:#FFFFFF ;
+    text-decoration: none;
+    padding: 35px;
+
+}
+.logo{
+    width: 80px;
+}

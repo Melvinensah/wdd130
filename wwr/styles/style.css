@@ -65,7 +65,7 @@ nav a:hover{
     text-decoration: none;
     font-size: 18px;
     padding: 15px 30px;
-    margin-top: 50px;
+    margin-top: 50px; 
     border-radius: 5px;
 }
 .book:hover, .join:hover{
@@ -192,6 +192,28 @@ footer p a:hover {
     padding-top: 5px;
     justify-self: center;
     align-self: center;
+}
+
+#contact{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    margin-top: -100px;
+}
+#con-msg{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    margin-top: 100px;
+}
+#con-box {
+    grid-column: 1/4;
+    grid-row: 1/3;
+    z-index: -1;    
+}
+#con-img {
+    width: 100%;
+} 
+#con-msg h1, #con-msg h4{
+    text-align: center;       
 }
 @media screen and (max-width: 900px) {
     #hero, .home-grid {
