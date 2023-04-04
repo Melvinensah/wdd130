@@ -17,33 +17,36 @@ p{
   font-family: Roboto, helvetica;
 }
 header{
-    background-color: #0D1321;
+    background-color: #FFFFFF;
     display: grid;
     grid-template-columns: 200px 200px auto;
 }
 
-.logo_link{    
-    justify-self: center;
-    align-self: center;
+.logo_link{ 
+    grid-row: 1/2;   
+    justify-items: center;
+    align-items: center;
 }
 .logo{
     width: 70px;
     margin: 20px;
+    border-radius: 20%;
 }
 nav {
+    grid-row: 2/3;
     display: flex;
     justify-content: space-around;
 }
 nav a{
     text-align: center;
-    color:#FF890A;
+    color:#00418b;
     text-decoration: none;
     padding: 35px;
     align-self: center;
 }
 nav a:hover{
-    background-color: white;
-    color: blue;
+    background-color: #00418b;
+    color: #FFFFFF;
 }
 #banner-area{
     display: grid;
@@ -53,15 +56,18 @@ nav a:hover{
 }
 #hero-msg{
   font-size:20px;
-  color: #FF890A;
+  color: #FFFFFF;
   grid-column:1/4;
   grid-row:1/2;
   margin-top:30px;
+  
   z-index:1;
 }
 
 #hero-msg h1, #hero-msg h4{
-    text-align: center;       
+    text-align: center;
+    justify-content: center;
+    align-content: center;       
 }
 #hero-box{
     grid-column: 1/4;
