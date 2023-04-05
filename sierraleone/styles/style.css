@@ -99,6 +99,8 @@ nav a:hover{
   grid-column: 2/3;
   width: 100%;
   margin-top: 30px;
+  justify-self: center;
+  align-self:center;
   text-align: center;
 }
 .lnd-scp{
@@ -108,6 +110,8 @@ nav a:hover{
   grid-column: 3/4;
   width: 100%;
   margin-top: 30px;
+  justify-self: center;
+  align-self:center;
   text-align: center;
 }
 .wld-lfe{
