@@ -15,11 +15,12 @@ h{
 }
 p{
   font-family: Roboto, helvetica;
+  color: #00418b;
 }
 header{
     background-color: #FFFFFF;
     display: grid;
-    grid-template-columns: 200px 200px auto;
+    grid-template-columns: 150px auto;
 }
 
 .logo_link{ 
@@ -53,15 +54,16 @@ nav a:hover{
 }
 #hero-msg{
   font-size:20px;
-  color: #FFFFFF;
+  color: #080808;
   grid-column:1/4;
   grid-row:1/2;
-  margin-top:30px;
+  justify-self: center;
+  align-self: center; 
   z-index:1;
 }
 
 #hero-msg h1, #hero-msg h4{
-    align-items: center;       
+  text-align: center;     
 }
 #hero-box{
     grid-column: 1/4;
@@ -80,14 +82,14 @@ nav a:hover{
   background-color: #b9c6ae;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 15px;
+  grid-gap: 10px;
   margin-top: 60px;
   
 }
 .History{
   grid-column: 1/2;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 40px;
   justify-self: center;
   align-self:center;
   text-align: center;
@@ -106,7 +108,7 @@ nav a:hover{
 }
 .lnd-scp{
   height: 400px;
- width: 400px;
+  width: 400px;
 }
 .wild-life{
   grid-column: 3/4;
