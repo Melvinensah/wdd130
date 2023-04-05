@@ -94,6 +94,7 @@ nav a:hover{
 }
 .hist{
   height: 400px;
+  width: 400px;
 }
 .land-scape{
   grid-column: 2/3;
@@ -105,6 +106,7 @@ nav a:hover{
 }
 .lnd-scp{
   height: 400px;
+ width: 400px;
 }
 .wild-life{
   grid-column: 3/4;
@@ -116,6 +118,7 @@ nav a:hover{
 }
 .wld-lfe{
   height: 400px;
+  width: 400px;
 }
 footer{
   background-color: #228b22;
