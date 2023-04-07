@@ -20,7 +20,7 @@ p{
 header{
     background-color: #FFFFFF;
     display: grid;
-    grid-template-columns: 150px 150px auto;
+    grid-template-columns: 150px auto;
 }
 .logo_link{ 
     justify-items: center;
@@ -29,11 +29,6 @@ header{
 .logo{
     width: 90px;
     margin: 20px;
-}
-.search-box{
-  color:#1F7A8C ;
-  align-self: center;
-  
 }
 nav {
     display: flex;
